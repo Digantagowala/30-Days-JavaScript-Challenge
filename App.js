@@ -1,98 +1,109 @@
-For Loop
+// function declaratio
 
-let x = 10;
-for (let i=1; i<=x; i++){
-    console.log(i)
+function evenodd(number) {
+    if(number  %2 === 0){
+        return ' Odd'
+
+    }else{
+        return ' even'
+    }
+}
+console.log(evenodd(10));
+console.log(evenodd(7))
+
+let num1 = 4;
+
+function evenOdd (num1){
+    return num1 * num1
+}
+console.log(evenOdd(num1))
+
+
+
+// function expression
+
+const x = function (a,b){
+    return (a>b)? a:b;
+
 }
 
-const number = 5;
+console.log(Math.max(20,30))
 
-for (let i = 1; i <= 10; i++) {
-  console.log(`${number} * ${i} = ${number * i}`)
+
+let nam1 = "Diganta";
+let name2 = " Gowala"
+const Onename = function(nam1, name2){
+    return nam1 + name2  
+}
+console.log(Onename(nam1, name2))
+
+
+
+// Arrow Function q 2.
+let c = 5;
+let d = 5
+const hello = (c, d) => {
+    return c + d
+}
+console.log(c+ d)
+
+let str = "Nation INDIA are the Best place to live with Spiritual life";
+
+const containsIndia = (str) => {
+    return !str.includes ("INDIA");
+};
+
+console.log(containsIndia(str)); 
+
+
+// Function parameters and Default value q 2.]
+
+function multiply(a, b = 1) {
+    return a * b;
 }
 
 
-while loop
-let sum = 0;
- let i = 1;
- while (i<=10){
-    sum+=i;
-    i++
- }console.log(`The number 1to 10 sum are : ${sum}`, )
+console.log(multiply(5, 3)); 
+console.log(multiply(7));    
 
 
-
-
-let i = 10;
-
-while (i >= 1) {
-  console.log(i);
-  i--;
-}
-
-do while loop
-let i = 1;
-
-
-do {
-    console.log(i);
-    i++;
-}while(i<=5)
-
-
-
-function factorialDoWhile(n) {
-    if (n < 0) return -1; // Factorial is not defined for negative numbers
-    let result = 1;
-    let i = n;
+function person(name = 'Diganta', age = 27, ) {
+    const greetingmsg = `Hello my name is ${name} and i am ${age} old`;
+    return greetingmsg;
     
-    do {
-        result *= i;
-        i--;
-    } while (i > 0);
-
-    return result;
 }
-
-console.log(factorialDoWhile(5)); // Output: 120
-
+console.log(person())
 
 
-Nested Loop
-
-function printRightAngledTriangle(rows) {
-    for (let i = 1; i <= rows; i++) {
-        let pattern = '';
-        for (let j = 1; j <= i; j++) {
-            pattern += '*';
-        }
-        console.log(pattern);
+// Higher order function Q 2.
+function higherF(func, times) {
+    for (let i = 0; i < times; i++) {
+        func(); 
     }
 }
 
-printRightAngledTriangle(5);
-
-Loop control system
-
-let text = '';
-
-for (let i = 1; i <= 10; i++) {
-    if (i === 5) {
-        continue;
-    }
-    text += i + "<br>";
+function Voter() {
+    console.log('Hello, I am a new voter');
 }
 
-console.log(text);
+higherF(Voter, 18);
 
-
-let text = '';
-
-for(let i = 0 ; i <=10; i++){
-    if(i === 7){
-        break
-    }
-    text += i + "<br>"
+function applyFunctions(func1, func2, value) {
+    const result1 = func1(value); 
+    const result2 = func2(result1); 
+    return result2; 
 }
-console.log(text)
+
+function firstFunction(value) {
+    return value * 2; 
+}
+
+function secondFunction(value) {
+    console.log(`Result after processing: ${value}`);
+}
+
+
+const initialValue = 5;
+const finalResult = applyFunctions(firstFunction, secondFunction, initialValue);
+
 
