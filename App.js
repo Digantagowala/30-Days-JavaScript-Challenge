@@ -1,51 +1,98 @@
-// Control structures
+For Loop
 
-if else statement
-let b = 10;
-if(b<=9, b+=9){
-    console.log("Positive")
-}else if (b>=9, b--){
-    console.log('Negative')
-}else{
-    console.log('Zero')
+let x = 10;
+for (let i=1; i<=x; i++){
+    console.log(i)
 }
 
-let age = 18;
-if (age>16){
-    console.log('The person are eligible of the Voter')
-}else if(age<16){
-    console.log("Not aligible of the voting")
+const number = 5;
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`${number} * ${i} = ${number * i}`)
 }
 
 
+while loop
+let sum = 0;
+ let i = 1;
+ while (i<=10){
+    sum+=i;
+    i++
+ }console.log(`The number 1to 10 sum are : ${sum}`, )
 
 
-// Nested if -else statement
-let num1 = 10;
-let num2 = 20;
-let num3 = 30;
 
-if (num1<=5){
-    console.log('Not greate as alike')
-    if(num1&num2 >=30){
-        console.log("I think it is not actuall")
-    }
-}else{
-    console.log(`This is my Greate number : ${num3}`);
+
+let i = 10;
+
+while (i >= 1) {
+  console.log(i);
+  i--;
 }
 
-// Function to check if a number is even or odd using the ternary operator
+do while loop
+let i = 1;
 
-  
-// combinig condition
-function Checkleapyear(year) {
-    const Leapyear = ( year % 4 === 0 &&(year % 100 !== 0 || year %400 == 0)? 'leap year': 'not leap year')
-    console.log(`The Year : ${year} is ${Leapyear}`)
+
+do {
+    console.log(i);
+    i++;
+}while(i<=5)
+
+
+
+function factorialDoWhile(n) {
+    if (n < 0) return -1; // Factorial is not defined for negative numbers
+    let result = 1;
+    let i = n;
     
+    do {
+        result *= i;
+        i--;
+    } while (i > 0);
+
+    return result;
 }
 
-Checkleapyear(2024);
-Checkleapyear(2023);
-Checkleapyear(2022);
-Checkleapyear(1997);
-  
+console.log(factorialDoWhile(5)); // Output: 120
+
+
+
+Nested Loop
+
+function printRightAngledTriangle(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let pattern = '';
+        for (let j = 1; j <= i; j++) {
+            pattern += '*';
+        }
+        console.log(pattern);
+    }
+}
+
+printRightAngledTriangle(5);
+
+Loop control system
+
+let text = '';
+
+for (let i = 1; i <= 10; i++) {
+    if (i === 5) {
+        continue;
+    }
+    text += i + "<br>";
+}
+
+console.log(text);
+
+
+let text = '';
+
+for(let i = 0 ; i <=10; i++){
+    if(i === 7){
+        break
+    }
+    text += i + "<br>"
+}
+console.log(text)
+
