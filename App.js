@@ -1,218 +1,175 @@
-Object creation and access question 2 
-let book = {
-    title: 'Do it Today',
-    Author: 'Darius Foroux',
-    Year: 2018,
-   
-}
-console.log(book)
-console.log(book.title)
-console.log(book.Author)
+
+  // Template Literals
+// const person = `Diganta`
+// const age = 27
+// const Log = `My name is ${person} and My age ${age}`
+// console.log(Log)
+
+// const Name = `Diganta`
+// const email = `digantagowala@123gmail.com`
+// const asse = `Welcome to my ${email}
+//             if you have any questtion , than can ask me about my Project and also ask me about my Ideas`
+
+// console.log(asse)
+
+
+// Destructuring
+
+// const dArr = [1, 2, 3, 4,]
+// const  [First, Second, third] = dArr
+// console.log(First)
+// console.log(Second)
+
+
+// const book = {
+//   title : 'The book',
+//   author : 'Chai and code'
+// }
+
+// const {title, author} = book
+
+// console.log(title)
+// console.log(author)
+
+// spread and rest operators
+
+// const newArr = [1, 2, 3,]
+// const secondArr = [4, 5, 6]
+
+// const newArray = [...newArr, ...secondArr];
+// console.log(newArray)
 
 
 
-object method question 2
-let book1 = {
-    title: 'Thermodynamics',
-    author: 'Mike Pauken',
-    getDetails: function() {
-        return `This is the Book Title: ${this.title} and Author name: ${this.author}`;
-    }
-    
+// function add(a, b, c) {
+//   return a + b + c;
+// }
+
+// const numbers = [1, 2, 3];
+// console.log(add(...numbers)); 
+
+
+// Default parameters
+
+// function name(a, b=1) {
+//   return a + b;
+  
+// }
+
+// console.log(name(2,2));
+// console.log(name(2))
+
+// const name = 'Diganta';
+// const age = 25;
+
+// const firstName = 'Digu'
+// const lastName = 'Oggi'
+// const age = 27
+
+// const person = {
+//   firstName,
+//   lastName,
+//   age,
+//   getfullName(){
+//     return `${firstName} & ${lastName}`;
+//   },
+  
+// }
+
+// console.log(person);
+// console.log(person.getfullName())
+
+
+// feature request
+const Name = "Diganta"
+const contact = 'digantagowala123@gmail.com'
+const personbio = `Hi i am Person who are interest in development
+                  and i want to get a job in Softare industry. 
+                  So if you have interest on me that you can ,
+                  Contact Me : ${contact} this email adress.`
+
+console.log(personbio)   
+
+// Destrutuing Script
+const  colors = ['Red', 'Green', 'Blue']
+const Positions = [First, Second, Third] = colors
+console.log(colors)
+console.log(First)
+console.log(Second)
+console.log(Third)
+
+const person = {
+  name: 'Diganta',
+  age: 25,
+  email: 'digantagowala123@gmail.com'
 };
-console.log(book1.getDetails());
+const { name, age, email } = person;
 
-let book1year = {
-    title: 'Thermodynamics',
-    author: 'Mike Pauken'
-};
 
-function updatedYear(year) {
-    book1year.year = year;
-    return book1year.year; 
+console.log(`Name: ${name}`);
+console.log(`Age: ${age}`);
+console.log(`Email: ${email}`);
+
+
+// spread and rest operator
+const arr = [1,2, 3, 4, 5, 6, ]
+const arr1 = [7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+const newAray = [...arr, ...arr1]
+console.log(newAray)
+
+
+function person1(name, age, adress) {
+  console.log(`Name: ${name}`)
+  console.log(`Age is : ${age}`)
+  console.log(`My Adress : ${adress}`)
 }
 
-console.log(updatedYear(2018)); 
-Nested Objects
-let library = {
-    name : 'Diganta',
-    Book: {
-        book1: 'English First paper',
-        Grade: 60
-    },
-    name2 : 'Moumita',
-    Book2: {
-        book2: 'English second Paper',
-        Grade: 80
-    }
-    
+function createProfile(name, age, ...hobbies) {
+  console.log(`নাম: ${name}`);
+  console.log(`বয়স: ${age}`);
+  console.log(`শখ: ${hobbies.join(', ')}`);
 }
 
-console.log(library)
+createProfile('Alice', 25, 'Reading', 'Hiking', 'Cooking'); 
 
-const Library ={
-    name: 'Diganta',
-    Book1 : {
-        Title: 'Selfish Giant'
-    },
-    name1 : 'Mouitaa',
-    Book2 : {
-        Title: 'NSV'
-    }
+// default parameter script
+function script (a, b=2) {
+   return a*2
 }
 
-const namelibrary = Library.name;
-const boooktitle = Library.Book1;
-const bookk2title = Library.Book2;
+console.log(script(2));
+console.log(script(4))
+
+// Enhanced Object  Literal
 
 
-console.log('Library name :', namelibrary);
-console.log('Book 1 Title:', boooktitle);
-console.log('Book 2 Title:', bookk2title);
+const dynamicKey = 'dynamicProperty';
+
+const myObject = {
+ 
+  [dynamicKey]: 'This is a dynamic property value',
 
 
-The this keyword
+  greet() {
+    console.log('Hello, welcome to enhanced object literals!');
+  },
 
-let objects1 = {
-    bOok: 'hello2',
-    tittle: "Developer",
-    year : 20000,
-    randome1: function(){
-        return `This is the title :${this.tittle}, and this is the year : ${this.year}`
-    }
-}
-console.log(objects1.randome1())
 
-Object iteration
-
-const book = {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    year: 1960,
-    genre: 'Fiction'
- };
- for (let key in book) {
-    console.log(key + ': ' + book[key]);
+  calculateSum(a, b) {
+    return a + b;
   }
+};
+
+
+console.log(myObject);
+
+
+myObject.greet();
+console.log('Sum:', myObject.calculateSum(5, 10));
+
+
+console.log('Dynamic Property Value:', myObject[dynamicKey]);
 
 
 
-const book = {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    year: 1960,
-    genre: 'Fiction'
-  };
-  
-  const keys = Object.keys(book);
-  console.log(keys); 
-  
-  
-  const book1 = {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    year: 1960,
-    genre: 'Fiction'
-  };
-  
-  const values = Object.values(book);
-  console.log(values);
-  
-
-Features Request
-
-let Book = {
-    title : 'How we get a job',
-    Author: 'Diganta gowala',
-    log: function(){
-        return ` This is the tittle of my property: ${this.title}, and ${this.Author}`
-    }
-}
-console.log(Book);
-console.log(Book.Author)
-
-
-const library = {
-    name: 'Central Library',
-    location: '123 Library Street, Booktown',
-    established: 1985,
-    books: [
-      {
-        title: 'The Catcher in the Rye',
-        author: 'J.D. Salinger',
-        year: 1951
-      },
-      {
-        title: 'To Kill a Mockingbird',
-        author: 'Harper Lee',
-        year: 1960
-      },
-      {
-        title: '1984',
-        author: 'George Orwell',
-        year: 1949
-      }
-    ]
-  };
-  
- 
-  console.log('Library name :' + library.name);
-  console.log(`Location` + library.location);
-  console.log('Established Year: ' + library.established);
-  console.log('Books in Library:');
-
-  library.books.forEach((book, index) => {
-    console.log(`  Book ${index + 1}:`);
-    console.log(`    Title: ${book.title}`);
-    console.log(`    Author: ${book.author}`);
-    console.log(`    Year: ${book.year}`);
-  });
-
- 
-
-// Define an array of objects
-const library = [
-    {
-      title: 'The Great Gatsby',
-      author: 'F. Scott Fitzgerald',
-      year: 1925
-    },
-    {
-      title: '1984',
-      author: 'George Orwell',
-      year: 1949
-    },
-    {
-      title: 'To Kill a Mockingbird',
-      author: 'Harper Lee',
-      year: 1960
-    }
-  ];
-  
-  // Using for...in loop to iterate over properties of each object
-  console.log('Using for...in loop:');
-  library.forEach((book, index) => {
-    console.log(`Book ${index + 1}:`);
-    for (let key in book) {
-      console.log(`  ${key}: ${book[key]}`);
-    }
-  });
-  
-  // Using Object.keys() to iterate over properties of each object
-  console.log('\nUsing Object.keys():');
-  library.forEach((book, index) => {
-    console.log(`Book ${index + 1}:`);
-    Object.keys(book).forEach(key => {
-      console.log(`  ${key}: ${book[key]}`);
-    });
-  });
-  
-  // Using Object.values() to iterate over properties of each object
-  console.log('\nUsing Object.values():');
-  library.forEach((book, index) => {
-    console.log(`Book ${index + 1}:`);
-    Object.values(book).forEach(value => {
-      console.log(`  ${value}`);
-    });
-  });
-  
