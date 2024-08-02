@@ -1,175 +1,91 @@
 
-  // Template Literals
-// const person = `Diganta`
-// const age = 27
-// const Log = `My name is ${person} and My age ${age}`
-// console.log(Log)
-
-// const Name = `Diganta`
-// const email = `digantagowala@123gmail.com`
-// const asse = `Welcome to my ${email}
-//             if you have any questtion , than can ask me about my Project and also ask me about my Ideas`
-
-// console.log(asse)
-
-
-// Destructuring
-
-// const dArr = [1, 2, 3, 4,]
-// const  [First, Second, third] = dArr
-// console.log(First)
-// console.log(Second)
-
-
-// const book = {
-//   title : 'The book',
-//   author : 'Chai and code'
-// }
-
-// const {title, author} = book
-
-// console.log(title)
-// console.log(author)
-
-// spread and rest operators
-
-// const newArr = [1, 2, 3,]
-// const secondArr = [4, 5, 6]
-
-// const newArray = [...newArr, ...secondArr];
-// console.log(newArray)
+// Dom menupulation : Selecting and Manupulating Elements
 
 
 
-// function add(a, b, c) {
-//   return a + b + c;
-// }
-
-// const numbers = [1, 2, 3];
-// console.log(add(...numbers)); 
-
-
-// Default parameters
-
-// function name(a, b=1) {
-//   return a + b;
-  
-// }
-
-// console.log(name(2,2));
-// console.log(name(2))
-
-// const name = 'Diganta';
-// const age = 25;
-
-// const firstName = 'Digu'
-// const lastName = 'Oggi'
-// const age = 27
-
-// const person = {
-//   firstName,
-//   lastName,
-//   age,
-//   getfullName(){
-//     return `${firstName} & ${lastName}`;
-//   },
-  
-// }
-
-// console.log(person);
-// console.log(person.getfullName())
-
-
-// feature request
-const Name = "Diganta"
-const contact = 'digantagowala123@gmail.com'
-const personbio = `Hi i am Person who are interest in development
-                  and i want to get a job in Softare industry. 
-                  So if you have interest on me that you can ,
-                  Contact Me : ${contact} this email adress.`
-
-console.log(personbio)   
-
-// Destrutuing Script
-const  colors = ['Red', 'Green', 'Blue']
-const Positions = [First, Second, Third] = colors
-console.log(colors)
-console.log(First)
-console.log(Second)
-console.log(Third)
-
-const person = {
-  name: 'Diganta',
-  age: 25,
-  email: 'digantagowala123@gmail.com'
-};
-const { name, age, email } = person;
-
-
-console.log(`Name: ${name}`);
-console.log(`Age: ${age}`);
-console.log(`Email: ${email}`);
-
-
-// spread and rest operator
-const arr = [1,2, 3, 4, 5, 6, ]
-const arr1 = [7, 8, 9, 10, 11, 12, 13, 14, 15]
-
-const newAray = [...arr, ...arr1]
-console.log(newAray)
-
-
-function person1(name, age, adress) {
-  console.log(`Name: ${name}`)
-  console.log(`Age is : ${age}`)
-  console.log(`My Adress : ${adress}`)
+function Hello () {
+  const NewText = document.getElementById('m')
+  NewText.textContent = 'hhhh'
 }
 
-function createProfile(name, age, ...hobbies) {
-  console.log(`নাম: ${name}`);
-  console.log(`বয়স: ${age}`);
-  console.log(`শখ: ${hobbies.join(', ')}`);
-}
+function mmmm() {
 
-createProfile('Alice', 25, 'Reading', 'Hiking', 'Cooking'); 
-
-// default parameter script
-function script (a, b=2) {
-   return a*2
-}
-
-console.log(script(2));
-console.log(script(4))
-
-// Enhanced Object  Literal
+  const elements = document.getElementsByClassName('mm');
 
 
-const dynamicKey = 'dynamicProperty';
-
-const myObject = {
- 
-  [dynamicKey]: 'This is a dynamic property value',
-
-
-  greet() {
-    console.log('Hello, welcome to enhanced object literals!');
-  },
-
-
-  calculateSum(a, b) {
-    return a + b;
+  for (let i = 0; i < elements.length; i++) {
+      elements[i].style.backgroundColor = 'red';
   }
-};
+}
+
+// Appending elements
+
+const newDiv = document.createElement('div');
+newDiv.textContent = 'Hi, My name is Diganta Gowala and i have to focus myself';
+document.body.append(newDiv)
 
 
-console.log(myObject);
+const ulList = document.querySelector('ul')
+const liList = document.createElement('li')
+
+liList.textContent ='This ready to action..';
+
+ulList.appendChild(liList)
+
+// Removing Elements
+
+const NewBack = document.getElementById('container');
+const lastchild = NewBack.lastElementChild;
+if(lastchild){
+  NewBack.removeChild(lastchild)
+}
+
+// Modifying Attriutes and classes
+
+function changeImageSource() {
+ 
+    const imageElement = document.getElementById('myImage');
+
+   
+    imageElement.setAttribute('src', 'second.img.jpg')
 
 
-myObject.greet();
-console.log('Sum:', myObject.calculateSum(5, 10));
+
+    console.log("Image replaced with:", imageElement.getAttribute('src'));
+}
+function addClass() {
+    const element = document.getElementById('hell');
+    element.classList.add('body');
+}
+
+function removeClass() {
+    const element = document.getElementById('hell');
+    element.classList.remove('body');
+}
 
 
-console.log('Dynamic Property Value:', myObject[dynamicKey]);
+let borderColor = document.getElementById('h');
+borderColor.addEventListener('mouseover', function(){
+    borderColor.style.border = 'red'
+})
 
 
+// Text Content Manupulation script
+
+function Text() {
+    const two = document.getElementById('p');
+    two.textContent = 'I think its change'
+}
+
+
+// Element Creation Script
+function name() {
+    const newone = document.getElementById('oo');
+    body.appendChild(newone)  
+}
+
+
+// Element Removal Script
+const bbb = document.getElementById('op');
+bbb.remove()
 
