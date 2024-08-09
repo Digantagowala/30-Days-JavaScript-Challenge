@@ -1,91 +1,163 @@
+// Basic Event handling
 
-// Dom menupulation : Selecting and Manupulating Elements
-
-
-
-function Hello () {
-  const NewText = document.getElementById('m')
-  NewText.textContent = 'hhhh'
+function changeOne() {
+    const elementOne = document.getElementById('Para');
+    elementOne.addEventListener('click', function(){
+        elementOne.textContent = 'Text Changed'
+    })
+    
 }
 
-function mmmm() {
+// Mouse Event 
 
-  const elements = document.getElementsByClassName('mm');
+const bgChange = document.getElementById('mousevent');
 
+bgChange.addEventListener('mouseover', function() {
+    bgChange.style.backgroundColor = 'red';
+});
 
-  for (let i = 0; i < elements.length; i++) {
-      elements[i].style.backgroundColor = 'red';
-  }
-}
-
-// Appending elements
-
-const newDiv = document.createElement('div');
-newDiv.textContent = 'Hi, My name is Diganta Gowala and i have to focus myself';
-document.body.append(newDiv)
+bgChange.addEventListener('mouseout', function() {
+    bgChange.style.backgroundColor = 'black';
+});
 
 
-const ulList = document.querySelector('ul')
-const liList = document.createElement('li')
+// Keyboard event
 
-liList.textContent ='This ready to action..';
+const searchInput = document.getElementById('searchInput');
 
-ulList.appendChild(liList)
-
-// Removing Elements
-
-const NewBack = document.getElementById('container');
-const lastchild = NewBack.lastElementChild;
-if(lastchild){
-  NewBack.removeChild(lastchild)
-}
-
-// Modifying Attriutes and classes
-
-function changeImageSource() {
- 
-    const imageElement = document.getElementById('myImage');
-
-   
-    imageElement.setAttribute('src', 'second.img.jpg')
+searchInput.addEventListener('keydown', function(event) {
+  
+    console.log('Key pressed:', event.key);
+    console.log('Key code:', event.code);
+  
+});
 
 
+const inputField = document.getElementById('inputField');
+const output = document.getElementById('output');
 
-    console.log("Image replaced with:", imageElement.getAttribute('src'));
-}
-function addClass() {
-    const element = document.getElementById('hell');
-    element.classList.add('body');
-}
+inputField.addEventListener('keyup', function(){
+    console.log('Input Value:', inputField.value);
+    output.textContent = 'Current Input : ' + inputField.value;
 
-function removeClass() {
-    const element = document.getElementById('hell');
-    element.classList.remove('body');
-}
+})
+
+Form Events
+ document.getElementById('dataForm').addEventListener('submit', function(event){
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    console.log(`Name :`,name);
+    console.log(`Email:`, email)
 
 
-let borderColor = document.getElementById('h');
-borderColor.addEventListener('mouseover', function(){
-    borderColor.style.border = 'red'
+ })
+  
+
+document.getElementById('fruitSelect').addEventListener('change', function(event){
+    const selectedFruit = event.target.value;
+
+    const inPara = document.getElementById('selectedFruit');
+    inPara.textContent = selectedFruit ? `You Selected : ${selectedFruit}` : ""
+
 })
 
 
-// Text Content Manupulation script
+// Event Delegation
 
-function Text() {
-    const two = document.getElementById('p');
-    two.textContent = 'I think its change'
+document.getElementById('fruitList').addEventListener('click', function(event) {
+  
+    if (event.target && event.target.nodeName === 'LI') {
+      
+      console.log('Clicked item:', event.target.textContent);
+    }
+  });
+  
+
+
+document.getElementById('taskList').addEventListener('click', function(event) {
+  
+  if (event.target && event.target.nodeName === 'LI') {
+    console.log('Completed task:', event.target.textContent);
+    event.target.remove(); 
+  }
+
+});
+
+document.getElementById('addTaskButton').addEventListener('click', function(event){
+   const taskInput = document.getElementById('newTaskInput');
+   const newTaskText = taskInput.value; 
+
+   if (newTaskText.trim() !== '') {
+    const newTask = document.createElement('li');
+    newTask.textContent = newTaskText;
+    document.getElementById('taskList').appendChild(newTask);
+    taskInput.value = ''; 
+  }
+})
+
+// Click Event Script:- question 1
+
+const buttnChanges = document.getElementById('btn');
+buttnChanges.addEventListener('click', function(){
+  buttnChanges.textContent = 'Hello im here'
+})
+//  mouse events script
+const mouseevents = document.getElementById('box1');
+
+mouseevents.addEventListener('mouseover',function(){
+  mouseevents.style.backgroundColor = "green"  
+});
+ mouseevents.addEventListener('mouseout', function(){
+  mouseevents.style.backgroundColor = "black"
+ })
+
+  // Keyboard events script
+  const keybrdaevents = document.getElementById('in');
+  keybrdaevents.addEventListener('keypress', function(event){
+    console.log(`Key Pressed :`, event.key);
+    console.log(`Key Up :`, event.code)
+  })
+
+  //Form events script:
+  function handleSubmit(event) {
+    
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    console.log('Employee Information Submitted:', data);
+    alert('Employee information submitted successfully!');
 }
 
 
-// Element Creation Script
-function name() {
-    const newone = document.getElementById('oo');
-    body.appendChild(newone)  
+function handleSelectChange(event) {
+    const selectedValue = event.target.value;
+    console.log('Department changed to:', selectedValue);
+    alert(`Selected Department: ${selectedValue}`);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
 
-// Element Removal Script
-const bbb = document.getElementById('op');
-bbb.remove()
+    const form = document.querySelector('form');
+    form.addEventListener('submit', handleSubmit);
+
+    const dropdown = document.querySelector('select');
+    dropdown.addEventListener('change', handleSelectChange);
+});
+
+// Event delegation script
+document.getElementById('myList').addEventListener('click', function(event){
+  if(event.target.tagName === 'LI'){
+    console.log(`Right Clicked :`, event.target.textContent);
+    alert( `Target are successfully Right`)
+
+  }
+})
+
+
 

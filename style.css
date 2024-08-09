@@ -1,0 +1,19 @@
+
+
+/* #mousevent {
+    background-color: black;
+    width: 400px;
+    height: 200px;
+    color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid bisque;
+} */
+ 
+#box1{
+    background-color: brown;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
