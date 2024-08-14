@@ -1,1 +1,185 @@
+// Basic Error handling
+function throwError(){
+  throw new Error('This is an International Error');
+}
+
+
+function handlingError(){
+  try {
+    throwError();
+
+  } catch (error) {
+    console.log(`Erorr occured:`, error.message)
+  }
+}
+handlingError();
+
+function devideNumber(D, m){
+  if(m === 0){
+    throw new Error('Devided by zero are not allowed');
+  }
+  return D / m;
+}
+
+function Testnumber(){
+  try {
+    let result = devideNumber(10, 0)
+    console.log(`Result`, result)
+    
+  } catch (error) {
+    console.log(`An error occured:`, error.message)
+    
+  }
+}
+Testnumber();
+
+// Finally Block
+function main() {
+  try {
+    console.log('One coding into try');
+    throw new Error('The new error occured');
+    console.log('This message wont be logged');
+  } catch (error) {
+    console.log('caught an error');
+    console.log('Error message: ' + error.message);
+  } finally {
+    console.log('inside finally block: Execution clean up code');
+  }
+  console.log('Outside the finally block the execution code : continues');
+}
+
+main();
+
+// Custom error object
+
+class FormValidation extends Error {
+  constructor(message, field) {
+    super(message);
+    this.name = this.constructor.name; 
+    this.field = field; 
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+function validateRegistrationForm(form) {
+  try {
+    if (!form.username) {
+      throw new FormValidation('Username is required!', 'username');
+    }
+
+  
+    if (form.password.length < 6) {
+      throw new FormValidation('Password must be at least 6 characters long!', 'password');
+    }
+    
+    console.log('Form validation successful!');
+  } catch (error) {
+    if (error instanceof FormValidation) {
+      console.log('Validation error:', error.message);
+      console.log('Field with issue:', error.field);
+    } else {
+      console.log('An unexpected error occurred:', error.message);
+    }
+  }
+}
+
+const form = {
+  username: 'Digantaaaa', 
+  password: '12345667' 
+};
+
+validateRegistrationForm(form);
+
+
+// Error handling in promises
+const logging = new Promise((resolve, reject) =>  {
+    let suss = false;
+    if(suss){
+        resolve('Sucess messsage');
+    }else{
+        reject('Not sucess messsage')
+    }
+})
+
+logging
+.then(data =>{
+    console.log(data)
+})
+.catch(Error=> {
+    console.log(`Error caught :`, Error)
+})
+    
+
+function mainF(){
+    return new Promise((resolve, reject) => {
+        let succes = Math.random() > 1;
+        
+
+        if(succes){
+            resolve('Successful')
+        }else{
+            reject('Not succesful')
+        }
+    })
+};
+
+async function handledata() {
+    try {
+        let result = await mainF();
+        console.log(result);
+        
+    } catch (error) {
+        console.log('caught an error:', error)
+        
+    }
+    
+}
+
+handledata();
+
+// GraceFul Error handling
+async function fetchDataFromUrl(url) {
+    try {
+        let storeIt =  await fetch(url);
+        if(!storeIt.ok){
+            throw new Error ("It is gone");
+        };
+
+        const storeurl =  await storeIt.json();
+        console.log(storeurl);
+
+        
+    } catch (error) {
+        console.log("Caught an error:", error)
+        
+    }
+    
+}
+
+fetchDataFromUrl('https://api.example.com/data')
+
+
+
+// Feature Request
+// Basic Errror handling script
+
+function BasicErrror(a,b){
+    try {
+        if(a === 0){
+            throw new Error ('Error Because not devided by zero')
+        }
+
+        let result = a / b;
+        console.log(`Result:`, result)
+    } catch (error) {
+        console.log("Error fixed", error.message)
+        
+    }finally{
+        console.log('All code i want')
+    }
+
+}
+
+BasicErrror(10,2);
+BasicErrror(10,0);
 
